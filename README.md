@@ -1,2 +1,2 @@
-# dio-clone-page
-Formação React Developer - Clone Págin a de login e Home da plataforma DIO utiliozando React.js e Styled Components.
+# DIO Clone Page
+Formação React Developer - Clone da página de login e home da plataforma DIO utilizando React.js e Styled Components.
