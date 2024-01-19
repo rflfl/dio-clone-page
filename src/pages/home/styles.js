@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const Container = styled.main`
     width:100%;
@@ -24,18 +24,17 @@ export const Title = styled.h2`
     color:#ffffff;
 `
 
-export const TitleHighlight = styled.spna`
+export const TitleHighlight = styled.span`
     color: #e4105d;
 `
 
 export const TextContent = styled.p`
-font-family: 'Open Sans';
+    font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 16px;
     width: 420px;
     margin-bottom: 20px;
     line-height: 22px;
-
     color:#ffffff;
 `
