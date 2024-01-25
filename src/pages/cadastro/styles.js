@@ -5,6 +5,7 @@ export const Container = styled.main`
     max-width: 80%;
     margin: 0 auto;
     margin-top: 120px;
+    margin-bottom: 120px;
 
     display:flex;
     flex-direction:row;
@@ -13,7 +14,11 @@ export const Container = styled.main`
 `
 
 export const Wrapper = styled.div`
-    max-width: 300px;
+    max-width: 375px;
+
+    form {
+        max-width: 280px;
+    }
 `
 
 export const Column = styled.div`
@@ -40,7 +45,7 @@ export const Title = styled.h2`
     color:#ffffff;
 `
 
-export const TitleLogin = styled.p`
+export const TitleCadastro = styled.p`
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
@@ -49,7 +54,7 @@ export const TitleLogin = styled.p`
     line-height: 44px;
 `
 
-export const SubtitleLogin = styled.p`
+export const SubtitleCadastro = styled.p`
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -58,22 +63,25 @@ export const SubtitleLogin = styled.p`
     line-height: 25px;
 `
 
-export const EsqueciText = styled.p`
+export const TermosUsoText = styled.p`
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-
-    color: #e5e044;
+    font-size: 18px;
+    margin-top: 35px;
+    line-height: 25px;
 `
 
-export const CriarText = styled.p`
+export const JaTenhoText = styled.p`
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 19px;
 
-    color: #23DD7A;
+    color: #ffffff;
+    a {
+        text-decoration: none;
+        color: #23DD7A;
+    }
 `
