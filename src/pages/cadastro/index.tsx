@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { MdEmail, MdLock } from "react-icons/md"
+import { FaUser } from "react-icons/fa6"
 import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
 import { Input } from "../../components/Input"
@@ -9,14 +10,15 @@ import * as yup from "yup"
 
 import { api } from "../../services/api"
 
-import { Column, Container, Wrapper, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin } from "./styles";
+import { Column, Container, Wrapper, JaTenhoText, Row, SubtitleCadastro, Title, TitleCadastro, TermosUsoText } from "./styles";
 
 const schema = yup.object({
+    nome: yup.string().required('Campo obrigatório'),
     email: yup.string().email('email não é valido').required('Campo obrigatório'),
     password: yup.string().min(3,'No mínimo 3 caracteres').required('Campo obrigatório'),
 }).required()
 
-const Login = () => {
+const Cadastro = () => {
     const navigate = useNavigate()
 
     const {
@@ -30,13 +32,7 @@ const Login = () => {
 
     const onSubmit = formData => {
         try {
-            const { data } = api.get(`users?email=${formData.email}&password${formData.password}`)
-            if( data.lenght && data[0].id){
-                navigate('/feed')
-                return
-            }else{
-                alert('E-mail ou senha inválidos.')
-            }
+            console.log(formData)
         } catch (error) {
             alert('Houve um error, tente novamente')
         }
@@ -52,16 +48,20 @@ const Login = () => {
             </Column>
             <Column>
                 <Wrapper>
-                    <TitleLogin>Faça seu cadastro</TitleLogin>
-                    <SubtitleLogin>Faça seu login e make the change._</SubtitleLogin>
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <TitleCadastro>Comece agora grátis</TitleCadastro>
+                    <SubtitleCadastro>Crie sua conta e make the change._</SubtitleCadastro>
+                    <form>
+                        <Input name="nome"  control={control} placeholder="Nome completo" leftIcon={<FaUser />} />
                         <Input name="email"  control={control} placeholder="E-mail" leftIcon={<MdEmail />} />
                         <Input name="password"  control={control} placeholder="Senha" type="password" leftIcon={<MdLock />} />
-                        <Button title="Entrar" variant="secondary"/>
+                        <Button title="Criar minha conta" variant="secondary" type="button" onClick={handleSubmit(onSubmit)}/>
                     </form>
+                    <TermosUsoText>Ao clicar em "Criar minha conta", declaro que aceito que aceito as Políticas de Privacidade e os Termos de Uso da DIO.</TermosUsoText>
                     <Row>
-                        <EsqueciText>Esqueci minha senha</EsqueciText>
-                        <CriarText>Criar conta</CriarText>
+                        <JaTenhoText>
+                            Já tenho conta.  
+                            <a href="/login">Fazer login</a>
+                        </JaTenhoText>
                     </Row>
                 </Wrapper>
             </Column>
@@ -69,4 +69,4 @@ const Login = () => {
     </>)
 }
 
-export { Login }
+export { Cadastro }
